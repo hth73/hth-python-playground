@@ -35,6 +35,7 @@ jobs:
           python -m pip install .
 
       - name: Build Binary
+        working-directory: pwmint
         run: |
           pyinstaller pwmint.spec
 
@@ -42,6 +43,7 @@ jobs:
             dist/pwmint-linux-${{ matrix.arch }}
 
       - name: Test Binary
+        working-directory: pwmint
         run: |
           ./dist/pwmint-linux-${{ matrix.arch }}
           ./dist/pwmint-linux-${{ matrix.arch }} --passphrase
@@ -50,4 +52,5 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: pwmint-linux-${{ matrix.arch }}
-          path: dist/pwmint-linux-${{ matrix.arch }}
+          path: pwmint/dist/pwmint-linux-${{ matrix.arch }}
+          
