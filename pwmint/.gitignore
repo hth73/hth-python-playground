@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+.pytest_cache
+src/pwmint/__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Packaging
+*.egg-info/
+
+# Local files
+.envrc
