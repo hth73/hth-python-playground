@@ -1,5 +1,4 @@
 import string
-
 import pytest
 
 from src.pwmint.password import (

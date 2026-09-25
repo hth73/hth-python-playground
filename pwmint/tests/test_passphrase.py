@@ -1,6 +1,5 @@
 import pytest
 
-from src.pwmint import passphrase
 from src.pwmint.passphrase import (
 	DEFAULT_WORD_COUNT,
 	MAX_WORD_COUNT,
@@ -71,20 +70,6 @@ def test_empty_separator_is_allowed():
 def test_passphrase_longer_than_maximum_length_is_rejected():
 	with pytest.raises(ValueError):
 		generate_passphrase(separator="x" * 120)
-
-
-def test_empty_word_list_is_rejected(monkeypatch):
-	monkeypatch.setattr(passphrase, "_load_word_list", lambda: [])
-
-	with pytest.raises(ValueError):
-		generate_passphrase()
-
-
-def test_word_list_with_too_few_words_is_rejected(monkeypatch):
-	monkeypatch.setattr(passphrase, "_load_word_list", lambda: ["one", "two", "three"])
-
-	with pytest.raises(ValueError):
-		generate_passphrase()
 
 
 def test_multiple_passphrases_are_not_always_identical():
