@@ -1,0 +1,15 @@
+[project]
+name = "pwmint"
+version = "1.0.0"
+description = "Password and Passphrase generator"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12"
+
+authors = [
+  { name = "Helmut Thurnhofer" }
+]
+
+[project.urls]
+Homepage = "https://github.com/hth73/hth-python-playground/tree/main/pwmint"
+Repository = "https://github.com/hth73/hth-python-playground/tree/main/pwmint"

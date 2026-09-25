@@ -1,0 +1,52 @@
+name: Build pwmint
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-latest
+
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyinstaller
+          python -m pip install .
+
+      - name: Build Binary
+        run: |
+          pyinstaller pwmint.spec
+
+          mv dist/pwmint \
+            dist/pwmint-linux-${{ matrix.arch }}
+
+      - name: Test Binary
+        run: |
+          ./dist/pwmint-linux-${{ matrix.arch }}
+          ./dist/pwmint-linux-${{ matrix.arch }} --passphrase
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: pwmint-linux-${{ matrix.arch }}
+          path: dist/pwmint-linux-${{ matrix.arch }}

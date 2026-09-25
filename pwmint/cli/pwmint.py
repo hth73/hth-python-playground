@@ -15,13 +15,15 @@ def create_parser() -> argparse.ArgumentParser:
 		"-l",
 		"--length",
 		type=int,
-		help="Password length.",
+		metavar="[15-64]",
+		help="Password length (15-64 characters).",
 	)
 	parser.add_argument(
 		"-c",
 		"--count",
 		type=int,
 		default=1,
+		metavar="[1-100]",
 		help="Number of secrets to generate.",
 	)
 	parser.add_argument(
@@ -34,12 +36,14 @@ def create_parser() -> argparse.ArgumentParser:
 		"-w",
 		"--words",
 		type=int,
-		help="Number of words in each passphrase.",
+		metavar="[4-10]",
+		help="Number of words (4-10, maximum 128 characters).",
 	)
 	parser.add_argument(
 		"-s",
 		"--separator",
-		help="Separator between passphrase words.",
+		metavar="SEPARATOR",
+		help='Separator between passphrase words (default: "-").',
 	)
 	return parser
 
