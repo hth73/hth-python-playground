@@ -1,7 +1,7 @@
 [project]
 name = "pwmint"
 version = "1.0.0"
-description = "Password and Passphrase generator"
+description = "pwmint - Secure Password and Passphrase Generator"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.12"
