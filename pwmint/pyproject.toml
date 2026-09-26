@@ -1,6 +1,6 @@
 [project]
 name = "pwmint"
-version = "1.0.0"
+version = "1.0.1"
 description = "pwmint - Secure Password and Passphrase Generator"
 readme = "README.md"
 license = { text = "MIT" }
