@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.1] - 2026-09-26
+
+### Added
+
+- `--version` / `-v` option to display the current pwmint version.
+- Configurable password character sets.
+- Options to exclude lowercase letters with `--no-lowercase`.
+- Options to exclude uppercase letters with `--no-uppercase`.
+- Options to exclude digits with `--no-digits`.
+- Options to exclude special characters with `--no-special`.
+- Structured command-line help with common, password and passphrase options.
+- Additional unit tests for password character set selection.
+
 ## [1.0.0] - 2026-09-25
 
 ### Added
